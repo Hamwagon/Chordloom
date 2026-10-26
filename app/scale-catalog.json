@@ -1,0 +1,970 @@
+[
+  {
+    "id": "major",
+    "name": "Ionian / Major",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "dorian",
+    "name": "Dorian",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "phrygian",
+    "name": "Phrygian",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "lydian",
+    "name": "Lydian",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "mixolydian",
+    "name": "Mixolydian",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "minor",
+    "name": "Aeolian / Natural minor",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "locrian",
+    "name": "Locrian",
+    "group": "Major scale modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "harmonic_minor",
+    "name": "Harmonic minor",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "locrian_n6",
+    "name": "Locrian ♮6",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "ionian_aug",
+    "name": "Ionian augmented",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "dorian_sharp4",
+    "name": "Dorian ♯4",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "phrygian_dom",
+    "name": "Phrygian dominant",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "lydian_sharp2",
+    "name": "Lydian ♯2",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      3,
+      4,
+      6,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "ultralocrian",
+    "name": "Ultralocrian",
+    "group": "Harmonic minor modes",
+    "notes": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "melodic_minor",
+    "name": "Melodic minor (ascending / jazz)",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "dorian_flat2",
+    "name": "Dorian ♭2",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "lydian_aug",
+    "name": "Lydian augmented",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "lydian_dom",
+    "name": "Lydian dominant",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "mixolydian_flat6",
+    "name": "Mixolydian ♭6",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "locrian_n2",
+    "name": "Locrian ♮2",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "altered",
+    "name": "Altered / Super Locrian",
+    "group": "Melodic minor modes (ascending / jazz)",
+    "notes": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "harmonic_major",
+    "name": "Harmonic major",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "dorian_flat5",
+    "name": "Dorian ♭5",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "phrygian_flat4",
+    "name": "Phrygian ♭4",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      1,
+      3,
+      4,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "lydian_flat3",
+    "name": "Lydian ♭3",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "mixolydian_flat2",
+    "name": "Mixolydian ♭2",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "lydian_aug_sharp2",
+    "name": "Lydian augmented ♯2",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      3,
+      4,
+      6,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "locrian_bb7",
+    "name": "Locrian ♭♭7",
+    "group": "Harmonic major modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "double_harmonic",
+    "name": "Double harmonic major",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "double_harmonic_2",
+    "name": "Double harmonic · mode 2",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      3,
+      4,
+      6,
+      7,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "double_harmonic_3",
+    "name": "Double harmonic · mode 3",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      1,
+      3,
+      4,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "hungarian_minor",
+    "name": "Hungarian minor",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "double_harmonic_5",
+    "name": "Double harmonic · mode 5",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "double_harmonic_6",
+    "name": "Double harmonic · mode 6",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      3,
+      4,
+      5,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "double_harmonic_7",
+    "name": "Double harmonic · mode 7",
+    "group": "Double harmonic modes",
+    "notes": [
+      0,
+      1,
+      2,
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "neapolitan_minor",
+    "name": "Neapolitan minor",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "neapolitan_minor_2",
+    "name": "Neapolitan minor · mode 2",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "neapolitan_minor_3",
+    "name": "Neapolitan minor · mode 3",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_minor_4",
+    "name": "Neapolitan minor · mode 4",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_minor_5",
+    "name": "Neapolitan minor · mode 5",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_minor_6",
+    "name": "Neapolitan minor · mode 6",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "neapolitan_minor_7",
+    "name": "Neapolitan minor · mode 7",
+    "group": "Neapolitan minor modes",
+    "notes": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "neapolitan_major",
+    "name": "Neapolitan major",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "neapolitan_major_2",
+    "name": "Neapolitan major · mode 2",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "neapolitan_major_3",
+    "name": "Neapolitan major · mode 3",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_major_4",
+    "name": "Neapolitan major · mode 4",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      7,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_major_5",
+    "name": "Neapolitan major · mode 5",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_major_6",
+    "name": "Neapolitan major · mode 6",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      2,
+      3,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "neapolitan_major_7",
+    "name": "Neapolitan major · mode 7",
+    "group": "Neapolitan major modes",
+    "notes": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "major_pentatonic",
+    "name": "Major pentatonic",
+    "group": "Pentatonic modes",
+    "notes": [
+      0,
+      2,
+      4,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "egyptian",
+    "name": "Egyptian pentatonic",
+    "group": "Pentatonic modes",
+    "notes": [
+      0,
+      2,
+      5,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "man_gong",
+    "name": "Man Gong pentatonic",
+    "group": "Pentatonic modes",
+    "notes": [
+      0,
+      3,
+      5,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "ritusen",
+    "name": "Ritusen pentatonic",
+    "group": "Pentatonic modes",
+    "notes": [
+      0,
+      2,
+      5,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "minor_pentatonic",
+    "name": "Minor pentatonic",
+    "group": "Pentatonic modes",
+    "notes": [
+      0,
+      3,
+      5,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "hirajoshi",
+    "name": "Hirajoshi",
+    "group": "Other pentatonic scales",
+    "notes": [
+      0,
+      2,
+      3,
+      7,
+      8
+    ]
+  },
+  {
+    "id": "in_sen",
+    "name": "In Sen",
+    "group": "Other pentatonic scales",
+    "notes": [
+      0,
+      1,
+      5,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "iwato",
+    "name": "Iwato",
+    "group": "Other pentatonic scales",
+    "notes": [
+      0,
+      1,
+      5,
+      6,
+      10
+    ]
+  },
+  {
+    "id": "kumoi",
+    "name": "Kumoi",
+    "group": "Other pentatonic scales",
+    "notes": [
+      0,
+      2,
+      3,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "minor_blues",
+    "name": "Minor blues",
+    "group": "Blues scales",
+    "notes": [
+      0,
+      3,
+      5,
+      6,
+      7,
+      10
+    ]
+  },
+  {
+    "id": "major_blues",
+    "name": "Major blues",
+    "group": "Blues scales",
+    "notes": [
+      0,
+      2,
+      3,
+      4,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "whole_tone",
+    "name": "Whole tone",
+    "group": "Symmetric scales",
+    "notes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ]
+  },
+  {
+    "id": "diminished_wh",
+    "name": "Diminished · whole–half",
+    "group": "Symmetric scales",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      6,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "diminished_hw",
+    "name": "Diminished · half–whole",
+    "group": "Symmetric scales",
+    "notes": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "augmented",
+    "name": "Augmented · minor third–half",
+    "group": "Symmetric scales",
+    "notes": [
+      0,
+      3,
+      4,
+      7,
+      8,
+      11
+    ]
+  },
+  {
+    "id": "augmented_inverse",
+    "name": "Augmented · half–minor third",
+    "group": "Symmetric scales",
+    "notes": [
+      0,
+      1,
+      4,
+      5,
+      8,
+      9
+    ]
+  },
+  {
+    "id": "bebop_dominant",
+    "name": "Bebop dominant",
+    "group": "Bebop scales",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "id": "bebop_major",
+    "name": "Bebop major",
+    "group": "Bebop scales",
+    "notes": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "bebop_dorian",
+    "name": "Bebop Dorian",
+    "group": "Bebop scales",
+    "notes": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": "bebop_melodic_minor",
+    "name": "Bebop melodic minor",
+    "group": "Bebop scales",
+    "notes": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      11
+    ]
+  },
+  {
+    "id": "chromatic",
+    "name": "Chromatic",
+    "group": "Chromatic",
+    "notes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  }
+]

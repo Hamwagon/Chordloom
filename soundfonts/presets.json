@@ -1,0 +1,273 @@
+{
+  "name": "Chordloom Factory",
+  "version": "1.1.0",
+  "file": "Chordloom-Factory.sf2",
+  "license": "CC0-1.0",
+  "description": "Original synthesized approximations; no recorded samples.",
+  "presets": [
+    {
+      "bank": 0,
+      "program": 0,
+      "name": "Soft keys",
+      "description": "Gentle additive struck-key approximation",
+      "attackSeconds": 0.006,
+      "decaySeconds": 1.15,
+      "sustainCentibels": 240,
+      "releaseSeconds": 0.32,
+      "filterCutoffHz": 5200
+    },
+    {
+      "bank": 0,
+      "program": 4,
+      "name": "Bell keys",
+      "description": "Bright harmonic bell-key approximation",
+      "attackSeconds": 0.003,
+      "decaySeconds": 2.4,
+      "sustainCentibels": 640,
+      "releaseSeconds": 0.62,
+      "filterCutoffHz": 11000
+    },
+    {
+      "bank": 0,
+      "program": 16,
+      "name": "Drawbar organ",
+      "description": "Additive drawbar-organ approximation",
+      "attackSeconds": 0.005,
+      "decaySeconds": 0.1,
+      "sustainCentibels": 0,
+      "releaseSeconds": 0.09,
+      "filterCutoffHz": 10000
+    },
+    {
+      "bank": 0,
+      "program": 24,
+      "name": "Plucked strings",
+      "description": "Comb-shaped additive string-pluck approximation",
+      "attackSeconds": 0.002,
+      "decaySeconds": 0.85,
+      "sustainCentibels": 380,
+      "releaseSeconds": 0.18,
+      "filterCutoffHz": 4300
+    },
+    {
+      "bank": 0,
+      "program": 32,
+      "name": "Round bass",
+      "description": "Rounded low-harmonic synthesized bass",
+      "attackSeconds": 0.012,
+      "decaySeconds": 0.55,
+      "sustainCentibels": 80,
+      "releaseSeconds": 0.16,
+      "filterCutoffHz": 1900
+    },
+    {
+      "bank": 0,
+      "program": 48,
+      "name": "Warm strings",
+      "description": "Soft detuned saw-family string ensemble approximation",
+      "attackSeconds": 0.18,
+      "decaySeconds": 0.6,
+      "sustainCentibels": 25,
+      "releaseSeconds": 0.65,
+      "filterCutoffHz": 4800
+    },
+    {
+      "bank": 0,
+      "program": 88,
+      "name": "Air pad",
+      "description": "Slow three-voice additive atmospheric pad",
+      "attackSeconds": 0.7,
+      "decaySeconds": 2,
+      "sustainCentibels": 40,
+      "releaseSeconds": 1.8,
+      "filterCutoffHz": 6500
+    },
+    {
+      "bank": 0,
+      "program": 11,
+      "name": "Mallet",
+      "description": "Short woody harmonic mallet approximation",
+      "attackSeconds": 0.002,
+      "decaySeconds": 0.5,
+      "sustainCentibels": 720,
+      "releaseSeconds": 0.25,
+      "filterCutoffHz": 8200
+    },
+    {
+      "bank": 0,
+      "program": 1,
+      "name": "Bright keys",
+      "description": "Brighter additive struck-key approximation",
+      "attackSeconds": 0.004,
+      "decaySeconds": 1.65,
+      "sustainCentibels": 280,
+      "releaseSeconds": 0.28,
+      "filterCutoffHz": 7600
+    },
+    {
+      "bank": 0,
+      "program": 5,
+      "name": "Tine keys",
+      "description": "Rounded electric-tine key approximation",
+      "attackSeconds": 0.005,
+      "decaySeconds": 2.2,
+      "sustainCentibels": 430,
+      "releaseSeconds": 0.45,
+      "filterCutoffHz": 9000
+    },
+    {
+      "bank": 0,
+      "program": 8,
+      "name": "Celesta",
+      "description": "Delicate high-harmonic celesta approximation",
+      "attackSeconds": 0.0025,
+      "decaySeconds": 2.8,
+      "sustainCentibels": 780,
+      "releaseSeconds": 0.7,
+      "filterCutoffHz": 12000
+    },
+    {
+      "bank": 0,
+      "program": 12,
+      "name": "Marimba",
+      "description": "Dry woody marimba-like struck tone",
+      "attackSeconds": 0.0015,
+      "decaySeconds": 0.42,
+      "sustainCentibels": 760,
+      "releaseSeconds": 0.15,
+      "filterCutoffHz": 6500
+    },
+    {
+      "bank": 0,
+      "program": 25,
+      "name": "Steel strings",
+      "description": "Bright comb-shaped steel-string pluck approximation",
+      "attackSeconds": 0.0018,
+      "decaySeconds": 1.25,
+      "sustainCentibels": 480,
+      "releaseSeconds": 0.22,
+      "filterCutoffHz": 8500
+    },
+    {
+      "bank": 0,
+      "program": 27,
+      "name": "Clean guitar",
+      "description": "Soft clean electric-guitar-like pluck",
+      "attackSeconds": 0.0035,
+      "decaySeconds": 1.1,
+      "sustainCentibels": 260,
+      "releaseSeconds": 0.24,
+      "filterCutoffHz": 6800
+    },
+    {
+      "bank": 0,
+      "program": 33,
+      "name": "Finger bass",
+      "description": "Plucked finger-bass-like low voice",
+      "attackSeconds": 0.008,
+      "decaySeconds": 0.7,
+      "sustainCentibels": 130,
+      "releaseSeconds": 0.12,
+      "filterCutoffHz": 2300
+    },
+    {
+      "bank": 0,
+      "program": 38,
+      "name": "Synth bass",
+      "description": "Filtered odd-harmonic synth bass",
+      "attackSeconds": 0.007,
+      "decaySeconds": 0.36,
+      "sustainCentibels": 65,
+      "releaseSeconds": 0.11,
+      "filterCutoffHz": 1650
+    },
+    {
+      "bank": 0,
+      "program": 40,
+      "name": "Solo violin",
+      "description": "Nasal bowed-saw violin approximation",
+      "attackSeconds": 0.075,
+      "decaySeconds": 0.48,
+      "sustainCentibels": 18,
+      "releaseSeconds": 0.3,
+      "filterCutoffHz": 7200
+    },
+    {
+      "bank": 0,
+      "program": 42,
+      "name": "Cello",
+      "description": "Dark bowed-string cello approximation",
+      "attackSeconds": 0.13,
+      "decaySeconds": 0.75,
+      "sustainCentibels": 22,
+      "releaseSeconds": 0.42,
+      "filterCutoffHz": 3900
+    },
+    {
+      "bank": 0,
+      "program": 56,
+      "name": "Trumpet",
+      "description": "Bright brass-family trumpet approximation",
+      "attackSeconds": 0.035,
+      "decaySeconds": 0.32,
+      "sustainCentibels": 30,
+      "releaseSeconds": 0.17,
+      "filterCutoffHz": 8100
+    },
+    {
+      "bank": 0,
+      "program": 60,
+      "name": "French horn",
+      "description": "Mellow low-brass horn approximation",
+      "attackSeconds": 0.09,
+      "decaySeconds": 0.62,
+      "sustainCentibels": 32,
+      "releaseSeconds": 0.28,
+      "filterCutoffHz": 3100
+    },
+    {
+      "bank": 0,
+      "program": 68,
+      "name": "Oboe",
+      "description": "Reedy odd/even-harmonic oboe approximation",
+      "attackSeconds": 0.055,
+      "decaySeconds": 0.4,
+      "sustainCentibels": 20,
+      "releaseSeconds": 0.19,
+      "filterCutoffHz": 6700
+    },
+    {
+      "bank": 0,
+      "program": 71,
+      "name": "Clarinet",
+      "description": "Rounded odd-harmonic clarinet approximation",
+      "attackSeconds": 0.045,
+      "decaySeconds": 0.58,
+      "sustainCentibels": 15,
+      "releaseSeconds": 0.21,
+      "filterCutoffHz": 5100
+    },
+    {
+      "bank": 0,
+      "program": 73,
+      "name": "Flute",
+      "description": "Soft near-sine flute approximation",
+      "attackSeconds": 0.065,
+      "decaySeconds": 0.9,
+      "sustainCentibels": 12,
+      "releaseSeconds": 0.25,
+      "filterCutoffHz": 5900
+    },
+    {
+      "bank": 0,
+      "program": 81,
+      "name": "Silk lead",
+      "description": "Gentle triangle-family synth lead",
+      "attackSeconds": 0.028,
+      "decaySeconds": 0.45,
+      "sustainCentibels": 42,
+      "releaseSeconds": 0.33,
+      "filterCutoffHz": 5600
+    }
+  ]
+}

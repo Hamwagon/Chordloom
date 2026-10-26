@@ -1,0 +1,24 @@
+name: Build Windows VST3
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+      - name: Build
+        run: cmake --build build --config Release --parallel
+      - name: Test engine
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Upload VST3 bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: Chordloom-Windows-x64-VST3
+          path: build/Chordloom_artefacts/Release/VST3/Chordloom.vst3
+          if-no-files-found: error

@@ -1,0 +1,156 @@
+{
+  "valid": true,
+  "bytes": 258264,
+  "sha256": "c18efe97cf842f92a4bb89641c3402025c26bbd5159625545e28c8828bced0e9",
+  "format": "SoundFont 2.01 / 16-bit mono PCM",
+  "sampleRate": 44000,
+  "sampleCount": 96,
+  "instrumentZoneCount": 108,
+  "guardFramesPerSample": 46,
+  "presets": [
+    {
+      "bank": 0,
+      "program": 0,
+      "name": "Soft keys",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 4,
+      "name": "Bell keys",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 16,
+      "name": "Drawbar organ",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 24,
+      "name": "Plucked strings",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 32,
+      "name": "Round bass",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 48,
+      "name": "Warm strings",
+      "zones": 8
+    },
+    {
+      "bank": 0,
+      "program": 88,
+      "name": "Air pad",
+      "zones": 12
+    },
+    {
+      "bank": 0,
+      "program": 11,
+      "name": "Mallet",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 1,
+      "name": "Bright keys",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 5,
+      "name": "Tine keys",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 8,
+      "name": "Celesta",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 12,
+      "name": "Marimba",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 25,
+      "name": "Steel strings",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 27,
+      "name": "Clean guitar",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 33,
+      "name": "Finger bass",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 38,
+      "name": "Synth bass",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 40,
+      "name": "Solo violin",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 42,
+      "name": "Cello",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 56,
+      "name": "Trumpet",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 60,
+      "name": "French horn",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 68,
+      "name": "Oboe",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 71,
+      "name": "Clarinet",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 73,
+      "name": "Flute",
+      "zones": 4
+    },
+    {
+      "bank": 0,
+      "program": 81,
+      "name": "Silk lead",
+      "zones": 4
+    }
+  ]
+}

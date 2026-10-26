@@ -1,0 +1,43 @@
+Chordloom Factory bank licensing
+===============================
+
+Generated sample waveforms, SoundFont bank parameters and Chordloom-Factory.sf2:
+SPDX-License-Identifier: CC0-1.0
+
+To the extent possible under law, the Chordloom contributors waive all
+copyright and related or neighboring rights in the original generated audio
+and bank parameters and dedicate them to the public domain under CC0 1.0.
+You may use, modify and redistribute these sounds, including in commercial
+work, without attribution. No warranties are provided.
+
+The complete CC0 1.0 Universal public-domain dedication is available at:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+All waveforms are generated mathematically by create_factory_bank.py. They
+contain no third-party recordings, soundfont samples, or other audio assets.
+Instrument labels describe synthesized approximations, not recordings of
+acoustic or electric instruments. No instrument manufacturer is endorsed.
+
+Generator code and documentation: SPDX-License-Identifier: MIT
+
+MIT License
+
+Copyright (c) 2026 Chordloom contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

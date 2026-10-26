@@ -1,0 +1,77 @@
+"""Chordloom: diatonic progression generator for FL Studio Piano roll scripts.
+Appends notes; never deletes existing notes. Use a blank Piano roll for a new idea.
+"""
+import flpianoroll as flp
+import random
+
+SCALE_NAMES = ['Ionian / Major', 'Aeolian / Natural minor', 'Dorian', 'Mixolydian', 'Phrygian', 'Lydian', 'Locrian', 'Harmonic minor', 'Locrian ♮6', 'Ionian augmented', 'Dorian ♯4', 'Phrygian dominant', 'Lydian ♯2', 'Ultralocrian', 'Melodic minor (ascending / jazz)', 'Dorian ♭2', 'Lydian augmented', 'Lydian dominant', 'Mixolydian ♭6', 'Locrian ♮2', 'Altered / Super Locrian', 'Harmonic major', 'Dorian ♭5', 'Phrygian ♭4', 'Lydian ♭3', 'Mixolydian ♭2', 'Lydian augmented ♯2', 'Locrian ♭♭7', 'Double harmonic major', 'Double harmonic · mode 2', 'Double harmonic · mode 3', 'Hungarian minor', 'Double harmonic · mode 5', 'Double harmonic · mode 6', 'Double harmonic · mode 7', 'Neapolitan minor', 'Neapolitan minor · mode 2', 'Neapolitan minor · mode 3', 'Neapolitan minor · mode 4', 'Neapolitan minor · mode 5', 'Neapolitan minor · mode 6', 'Neapolitan minor · mode 7', 'Neapolitan major', 'Neapolitan major · mode 2', 'Neapolitan major · mode 3', 'Neapolitan major · mode 4', 'Neapolitan major · mode 5', 'Neapolitan major · mode 6', 'Neapolitan major · mode 7', 'Major pentatonic', 'Egyptian pentatonic', 'Man Gong pentatonic', 'Ritusen pentatonic', 'Minor pentatonic', 'Hirajoshi', 'In Sen', 'Iwato', 'Kumoi', 'Minor blues', 'Major blues', 'Whole tone', 'Diminished · whole–half', 'Diminished · half–whole', 'Augmented · minor third–half', 'Augmented · half–minor third', 'Bebop dominant', 'Bebop major', 'Bebop Dorian', 'Bebop melodic minor', 'Chromatic']
+SCALES = ((0, 2, 4, 5, 7, 9, 11), (0, 2, 3, 5, 7, 8, 10), (0, 2, 3, 5, 7, 9, 10), (0, 2, 4, 5, 7, 9, 10), (0, 1, 3, 5, 7, 8, 10), (0, 2, 4, 6, 7, 9, 11), (0, 1, 3, 5, 6, 8, 10), (0, 2, 3, 5, 7, 8, 11), (0, 1, 3, 5, 6, 9, 10), (0, 2, 4, 5, 8, 9, 11), (0, 2, 3, 6, 7, 9, 10), (0, 1, 4, 5, 7, 8, 10), (0, 3, 4, 6, 7, 9, 11), (0, 1, 3, 4, 6, 8, 9), (0, 2, 3, 5, 7, 9, 11), (0, 1, 3, 5, 7, 9, 10), (0, 2, 4, 6, 8, 9, 11), (0, 2, 4, 6, 7, 9, 10), (0, 2, 4, 5, 7, 8, 10), (0, 2, 3, 5, 6, 8, 10), (0, 1, 3, 4, 6, 8, 10), (0, 2, 4, 5, 7, 8, 11), (0, 2, 3, 5, 6, 9, 10), (0, 1, 3, 4, 7, 8, 10), (0, 2, 3, 6, 7, 9, 11), (0, 1, 4, 5, 7, 9, 10), (0, 3, 4, 6, 8, 9, 11), (0, 1, 3, 5, 6, 8, 9), (0, 1, 4, 5, 7, 8, 11), (0, 3, 4, 6, 7, 10, 11), (0, 1, 3, 4, 7, 8, 9), (0, 2, 3, 6, 7, 8, 11), (0, 1, 4, 5, 6, 9, 10), (0, 3, 4, 5, 8, 9, 11), (0, 1, 2, 5, 6, 8, 9), (0, 1, 3, 5, 7, 8, 11), (0, 2, 4, 6, 7, 10, 11), (0, 2, 4, 5, 8, 9, 10), (0, 2, 3, 6, 7, 8, 10), (0, 1, 4, 5, 6, 8, 10), (0, 3, 4, 5, 7, 9, 11), (0, 1, 2, 4, 6, 8, 9), (0, 1, 3, 5, 7, 9, 11), (0, 2, 4, 6, 8, 10, 11), (0, 2, 4, 6, 8, 9, 10), (0, 2, 4, 6, 7, 8, 10), (0, 2, 4, 5, 6, 8, 10), (0, 2, 3, 4, 6, 8, 10), (0, 1, 2, 4, 6, 8, 10), (0, 2, 4, 7, 9), (0, 2, 5, 7, 10), (0, 3, 5, 8, 10), (0, 2, 5, 7, 9), (0, 3, 5, 7, 10), (0, 2, 3, 7, 8), (0, 1, 5, 7, 10), (0, 1, 5, 6, 10), (0, 2, 3, 7, 9), (0, 3, 5, 6, 7, 10), (0, 2, 3, 4, 7, 9), (0, 2, 4, 6, 8, 10), (0, 2, 3, 5, 6, 8, 9, 11), (0, 1, 3, 4, 6, 7, 9, 10), (0, 3, 4, 7, 8, 11), (0, 1, 4, 5, 8, 9), (0, 2, 4, 5, 7, 9, 10, 11), (0, 2, 4, 5, 7, 8, 9, 11), (0, 2, 3, 4, 5, 7, 9, 10), (0, 2, 3, 5, 7, 8, 9, 11), (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+PATTERNS = ((0,4,5,3),(0,5,2,6),(0,3,4,0),(0,2,5,3),(1,4,0,5),(5,4,3,4))
+
+def createDialog():
+    form = flp.ScriptDialog('Chordloom', 'Generate chord notes in this Piano roll. Existing notes are kept. Use an empty pattern for a new progression. Octaves: C4 = MIDI 60. Bars here are four quarter notes.')
+    form.addInputCombo('Root', ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'], 0)
+    form.addInputCombo('Scale', SCALE_NAMES, 1)
+    form.addInputCombo('Progression', ['Open sky','After hours','Homecoming','Slow orbit','Jazz turn','Descending','Generated'], 1)
+    form.addInputKnobInt('Variation seed', 1, 0, 999)
+    form.addInputCombo('Chord color', ['Triads','Sevenths','Ninths'], 1)
+    form.addInputCombo('Voicing', ['Close','Smooth','Open'], 1)
+    form.addInputKnobInt('Octave', 3, 2, 4)
+    form.addInputCombo('Chord count', ['4','8'], 0)
+    form.addInputCombo('Bars per chord', ['1','2','4'], 0)
+    form.addInputCombo('Rhythm', ['Sustained','Quarter pulses','Eighth arpeggio'], 0)
+    form.addInputKnobInt('Velocity', 86, 1, 127)
+    form.addInputKnob('Gate', 0.9, 0.2, 1.0)
+    form.addInputKnobInt('Start bar (1 based)', 1, 1, 129)
+    return form
+
+def voice(degree, root, scale, octave, size, mode, previous):
+    count = len(scale)
+    degree %= count
+    notes = [(octave+1)*12+root+scale[(degree+i*2)%count]+12*((degree+i*2)//count) for i in range(size)]
+    if mode == 2:
+        raised = notes[1] + 12
+        while raised in notes[:1] + notes[2:]:
+            raised += 12
+        notes[1] = raised
+        notes.sort()
+    elif mode == 1 and previous:
+        candidates = []
+        for inversion in range(size):
+            for shift in (-12,0,12):
+                c = sorted(n+(12 if i<inversion else 0)+shift for i,n in enumerate(notes))
+                if c[0]>=24 and c[-1]<=108 and len(set(c)) == len(c):
+                    candidates.append(c)
+        if candidates:
+            notes = min(candidates, key=lambda c: sum(abs(n-previous[min(i,len(previous)-1)]) for i,n in enumerate(c)))
+    return notes
+
+def apply(form):
+    value = form.getInputValue
+    root = int(value('Root'))
+    scale = SCALES[int(value('Scale'))]
+    pattern_index = int(value('Progression'))
+    rng = random.Random(int(value('Variation seed')))
+    pattern = PATTERNS[pattern_index] if pattern_index < len(PATTERNS) else (0, rng.randrange(len(scale)), rng.randrange(len(scale)), rng.randrange(len(scale)))
+    size = 3 + int(value('Chord color'))
+    count = (4,8)[int(value('Chord count'))]
+    span = (1,2,4)[int(value('Bars per chord'))] * 4 * flp.score.PPQ
+    rhythm = int(value('Rhythm'))
+    step = span if rhythm == 0 else flp.score.PPQ if rhythm == 1 else flp.score.PPQ / 2
+    offset = (int(value('Start bar (1 based)'))-1) * 4 * flp.score.PPQ
+    gate = float(value('Gate'))
+    velocity = int(value('Velocity')) / 127.0
+    previous = []
+    for ci in range(count):
+        notes = voice(pattern[ci%4], root, scale, int(value('Octave')), size, int(value('Voicing')), previous)
+        previous = notes
+        for pulse in range(int(round(span/step))):
+            pitches = [notes[pulse%len(notes)]] if rhythm == 2 else notes
+            for pitch in pitches:
+                note = flp.Note()
+                note.number = pitch
+                note.time = int(round(offset+ci*span+pulse*step))
+                note.length = max(1,int(round(step*gate)))
+                note.velocity = velocity
+                note.selected = True
+                flp.score.addNote(note)

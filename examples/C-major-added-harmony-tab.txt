@@ -1,0 +1,46 @@
+Chordloom tablature · Guitar · standard · capo 0 · playable pitches
+Guitar-friendly arrangement: octave placements and doublings may differ from MIDI/audio.
+Harmony: Third + fifth above · source top voice · added-note velocity 70%. Base chord symbols and added notes are listed separately.
+Frets are relative to capo. Top line is the last tuning string. Each column is a note onset, not an equal time division.
+Beat offsets are zero-based within the chord; sustain follows the selected note-length gate. x = muted string.
+Tempo 100 BPM · 1 bar(s) per chord · rhythm held · gate 90%.
+
+1. Base C + harmony B3, D4 · 4 beats · grip x 3 0 0 0 0
+beat 0   
+  e |0---|
+  B |0---|
+  G |0---|
+  D |0---|
+  A |3---|
+  E |----|
+LH   x 1 o o o o (tuning order)
+
+2. Base G + harmony F4, A4 · 4 beats · grip 3 0 0 0 0 1
+beat 0   
+  e |1---|
+  B |0---|
+  G |0---|
+  D |0---|
+  A |0---|
+  E |3---|
+LH   2 o o o o 1 (tuning order)
+
+3. Base Am + harmony G4, B4 · 4 beats · grip 5 3 2 0 0 0
+beat 0   
+  e |0---|
+  B |0---|
+  G |0---|
+  D |2---|
+  A |3---|
+  E |5---|
+LH   3 2 1 o o o (tuning order)
+
+4. Base F + harmony E4, G4 · 4 beats · grip 1 0 2 0 1 0
+beat 0   
+  e |0---|
+  B |1---|
+  G |0---|
+  D |2---|
+  A |0---|
+  E |1---|
+LH   1 o 3 o 2 o (tuning order)

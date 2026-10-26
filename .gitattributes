@@ -1,0 +1,6 @@
+* text=auto
+*.mid -text
+*.sf2 -text
+*.sf3 -text
+*.png -text
+*.zip -text
