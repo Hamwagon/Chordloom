@@ -1,8 +1,8 @@
 # Verification record · v1.5
 
-Latest update completed October 25, 2026.
+Latest update completed October 30, 2026.
 
-## Android APK · October 29, 2026
+## Android APK · October 29–30, 2026
 
 - Added an offline Android shell around the existing browser engine, native document
   pickers, Android-only phone layout and export/lifecycle adapter. Musical engine
@@ -19,8 +19,18 @@ Latest update completed October 25, 2026.
 - The debug APK compiles with JDK 17, Gradle 8.9, Android Gradle Plugin 8.7.3,
   compile/target SDK 35 and minimum SDK 26. Android apksigner verifies its v2
   signature; packaged assets match the current shared sources and license notices.
-- Android lint is included in the build checks; runtime checks are recorded
-  separately from the browser's simulated native bridge.
+- Clean Android build and lint pass locally with no lint issues. The
+  [GitHub Android build](https://github.com/Hamwagon/Chordloom/actions/runs/41060940271)
+  also passes all shared engine/adapter checks, APK assembly, lint and asset checks,
+  and uploads the debug APK artifact. The workflow explicitly requests supported
+  SDK packages rather than the setup action's obsolete `tools` default.
+- The downloadable local test APK is 281,106 bytes. Its SHA-256 is
+  `5a5ad0d9f5bf12d8e440f4657e0d698728dc00ee68e0f701ff04bcc0834b1e43`.
+- The October 30 Android 15/API 35 software-emulator attempt stopped after
+  603 seconds without completing Android's first boot. Guest logs showed ongoing
+  optimization of bundled Google apps. APK runtime cases were skipped, not passed
+  or failed. Native WebView playback, document-picker exports/imports and native
+  background pause remain unverified; the emulator was shut down afterward.
 - Physical-phone listening, real MIDI hardware and FL Studio integration remain
   unverified. This is a sideloadable debug-signed build, not a Play Store release.
 
