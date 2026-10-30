@@ -4,6 +4,8 @@ Version 1.5 · A local chord progression studio with Standard MIDI File export, 
 
 ## Android phones
 
+[Download the signed Android test APK](downloads/Chordloom-Android-1.5.0-debug.apk?raw=1).
+
 An offline Android APK project is available in **android/**. It uses this same
 music engine with touch controls and Android document pickers for MIDI, tab, session
 and SoundFont files. See [android/README.md](android/README.md) for installation,

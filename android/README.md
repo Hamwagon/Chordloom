@@ -6,9 +6,11 @@ storage permission. No VST3 build is involved.
 
 ## Install the APK
 
-Download `Chordloom-Android-debug` from the Android workflow's artifacts and unzip
-it. Open the APK on your phone and allow installation from that source when Android
-asks. This is a debug-signed test build, not a Play Store release.
+Download the [signed test APK](../downloads/Chordloom-Android-1.5.0-debug.apk?raw=1)
+directly from this repository. Its SHA-256 checksum is in the adjacent `.sha256`
+file. You can also download `Chordloom-Android-debug` from the Android workflow's
+artifacts and unzip it. Open the APK on your phone and allow installation from that
+source when Android asks. This is a debug-signed test build, not a Play Store release.
 
 Android 8.0 (API 26) or later and an up-to-date Android System WebView are required.
 The app includes the same scales, progression editing, harmony, rhythms, factory
