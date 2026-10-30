@@ -2,6 +2,14 @@
 
 Version 1.5 · A local chord progression studio with Standard MIDI File export, plus a separate native VST3 source project for FL Studio on Windows.
 
+## Android phones
+
+An offline Android APK project is available in **android/**. It uses this same
+music engine with touch controls and Android document pickers for MIDI, tab, session
+and SoundFont files. See [android/README.md](android/README.md) for installation,
+building, and Android-specific limits. The Android workflow creates a debug-signed
+test APK; it does not build or require the VST3.
+
 ## Start making music now
 
 Open **Chordloom.html** in Chrome or Edge (double-click it). It is a self-contained offline app; no installation, account, external dependencies, or internet connection is needed for generation, preview, session save/load, or MIDI export.

@@ -2,6 +2,28 @@
 
 Latest update completed October 25, 2026.
 
+## Android APK · October 29, 2026
+
+- Added an offline Android shell around the existing browser engine, native document
+  pickers, Android-only phone layout and export/lifecycle adapter. Musical engine
+  files and the VST3 source are unchanged.
+- All six shared JavaScript test suites pass. Android adapter tests pass for binary
+  and UTF-8 exports, size limits, native completion/cancellation/failure, duplicate
+  saves, browser fallback, and background pause.
+- Real Chromium tests pass at 360, 393 and 430 CSS pixels with no document overflow,
+  measured touch targets of at least 44 pixels, exact MIDI/session/tab export bytes,
+  version-4 session restoration, 24 factory presets, factory and SF3 playback with
+  advancing media time, lifecycle pause and local license display. No page errors
+  or external HTTP requests occurred. Native save results in this browser test are
+  simulated; it does not test the Android document provider.
+- The debug APK compiles with JDK 17, Gradle 8.9, Android Gradle Plugin 8.7.3,
+  compile/target SDK 35 and minimum SDK 26. Android apksigner verifies its v2
+  signature; packaged assets match the current shared sources and license notices.
+- Android lint is included in the build checks; runtime checks are recorded
+  separately from the browser's simulated native bridge.
+- Physical-phone listening, real MIDI hardware and FL Studio integration remain
+  unverified. This is a sideloadable debug-signed build, not a Play Store release.
+
 ## Standalone app
 
 - Syntax checks passed for engine.js and app.js.
