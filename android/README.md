@@ -15,7 +15,7 @@ source when Android asks. This is a debug-signed test build, not a Play Store re
 Android 8.0 (API 26) or later and an up-to-date Android System WebView are required.
 The app includes the same scales, progression editing, harmony, rhythms, factory
 sounds, local SF2/SF3 loading, tablature and MIDI export as the standalone app.
-Open **Palette & groove** to change generation settings on a phone.
+Open **Palette & groove** to change generation settings on a phone. Version 1.5.1 fixes playback interruption after editing a chord degree: active playback regenerates and restarts from the beginning, while stopped playback stays stopped. Lock toggles keep the existing audio running. Variations favor balanced, less repetitive progressions and avoid recent choices within the selected key/mode.
 
 - **Export MIDI**, **Export tab**, and **Save session** open Android's save picker.
 - **Load session** and **Load SoundFont** open Android's document picker. If a
@@ -59,6 +59,7 @@ and `app/android.css`, and native file access/lifecycle code is in `MainActivity
 
 ```sh
 node app/test-android.cjs
+node app/test-variation.cjs
 node android/tools/prepare-assets.cjs
 node android/tools/prepare-assets.cjs --check
 ```
@@ -73,3 +74,9 @@ Android runtime tests of WebView and the real document picker.
 CI lives at `.github/workflows/android.yml`, runs the engine/adapter tests and
 Android lint, and uploads a debug-signed APK. It does not publish a Play Store app
 or alter the existing native VST3 sources.
+
+The playback regression suite is `app/test-playback-browser.cjs`. CI also runs
+`android/tools/test-android-device.cjs` in an accelerated API 35 AOSP emulator,
+covering the actual native Roman-degree popup, built-in/factory playback, edit
+during preparation, cancellation and foreground/background behavior. Native test
+results and diagnostics are uploaded as `Android-playback-results`.

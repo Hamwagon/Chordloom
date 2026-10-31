@@ -14,7 +14,7 @@ fs.mkdirSync(output, { recursive: true });
 const sdk = process.env.ANDROID_HOME || process.env.ANDROID_SDK_ROOT;
 const adb = process.env.ADB || (sdk ? path.join(sdk, 'platform-tools', process.platform === 'win32' ? 'adb.exe' : 'adb') : 'adb');
 let serial = flags.get('--serial') || process.env.ANDROID_SERIAL;
-let port, browser, page, webviewBounds;
+let androidDevice, page, webviewBounds;
 const passed = [];
 const errors = [];
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -137,25 +137,23 @@ watchdog.unref();
     if (!pid) await sleep(1000);
   }
   assert(pid, 'Android app process did not start');
-  port = adbCall(['forward', 'tcp:0', 'localabstract:webview_devtools_remote_' + pid]).trim();
-  const endpoint = 'http://127.0.0.1:' + port;
-  let debugReady = false;
-  for (let i = 0; i < 45 && !debugReady; i++) {
-    try { debugReady = (await fetch(endpoint + '/json/version', { signal: AbortSignal.timeout(2500) })).ok; } catch (_) {}
-    if (!debugReady) await sleep(1000);
-  }
-  assert(debugReady, 'Debug WebView endpoint did not become available');
   let playwright;
   try { playwright = require('playwright-core'); }
   catch (error) {
     if (!process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES) throw Error('Install playwright-core and set NODE_PATH to its node_modules directory.');
     playwright = require(path.join(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES, 'playwright-core'));
   }
-  browser = await playwright.chromium.connectOverCDP(endpoint, { timeout: 60000 });
-  page = browser.contexts()[0].pages().find(item => item.url().includes('/assets/index.html'));
+  // Use Playwright's Android-aware CDP transport; a WebView is not desktop Chrome.
+  const devices = await playwright._android.devices({ omitDriverInstall: true });
+  androidDevice = devices.find(device => device.serial() === serial);
+  assert(androidDevice, 'Android device was absent from Playwright ADB discovery');
+  androidDevice.setDefaultTimeout(60000);
+  const view = await androidDevice.webView({ pkg: 'music.chordloom.android' }, { timeout: 60000 });
+  page = await view.page();
   assert(page, 'Chordloom WebView page was absent');
   page.setDefaultTimeout(60000);
   page.on('pageerror', error => errors.push('WebView: ' + error.message));
+  await page.waitForURL('https://appassets.androidplatform.net/assets/index.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForFunction(() => document.querySelectorAll('#chords .chord').length === 4, null, { timeout: 60000 });
   proof('cold-load', await page.evaluate(() => ({ chords: document.querySelectorAll('#chords .chord').length, nativeBridge: typeof window.ChordloomAndroid?.saveFile, userAgent: navigator.userAgent })));
   const nativeView = uiNodes('cold-load').find(node => node.class === 'android.webkit.WebView');
@@ -222,7 +220,6 @@ watchdog.unref();
   process.exitCode = 1;
 }).finally(async () => {
   await saveDiagnostics();
-  try { if (browser) await browser.close(); } catch (_) {}
-  try { if (port) adbCall(['forward', '--remove', 'tcp:' + port], 10000); } catch (_) {}
+  try { if (androidDevice) await androidDevice.close(); } catch (_) {}
   clearTimeout(watchdog);
 });
