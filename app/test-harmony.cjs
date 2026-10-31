@@ -222,7 +222,7 @@ test('recipes retain the selected route, repeat to length eight and wrap for cus
   }
 });
 
-test('variations use the selected recipe, preserve every locked position and only vary an unlocked middle', () => {
+test('variations retain recipe endpoints and locks while diversifying the editable middle', () => {
   for (const preset of E.recipes.map(r => r.id))
     for (const length of [4, 8])
       for (const scale of ['major', 'minor', 'major_pentatonic'])
@@ -236,7 +236,7 @@ test('variations use the selected recipe, preserve every locked position and onl
           assert.equal(result.degrees.length, length);
           for (let i = 0; i < length; i++) {
             if (locks[i]) assert.equal(result.degrees[i], current[i]);
-            else if (i !== result.index) assert.equal(result.degrees[i], current[i]);
+            else if (i === 0 || i === length - 1) assert.equal(result.degrees[i], current[i]);
             assert(result.degrees[i] >= 0 && result.degrees[i] < E.getScale(s).length);
           }
           assert.notEqual(result.degrees[result.index], current[result.index]);
@@ -244,7 +244,10 @@ test('variations use the selected recipe, preserve every locked position and onl
         }
   const current = [6, 6, 1, 2];
   const result = E.vary(defaults, current, [false, true, false, false], () => 0);
-  assert.deepEqual(result.degrees, [0, 6, 0, 3], 'unlocked unchanged positions return to selected recipe; locked manual degree survives');
+  assert.equal(result.degrees[0], 0, 'recipe entrance is retained');
+  assert.equal(result.degrees[3], 3, 'recipe cadence is retained');
+  assert.equal(result.degrees[1], 6, 'locked manual degree survives');
+  assert.notEqual(result.degrees[2], current[2], 'editable middle actually changes');
   for (const locks of [[true, true, true, true], [false, true, true, false]]) {
     const unchanged = E.vary(defaults, current, locks, () => 0);
     assert.equal(unchanged.changed, false);

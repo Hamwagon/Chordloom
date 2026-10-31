@@ -1,0 +1,32 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'music.chordloom.android'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+    buildFeatures { buildConfig true }
+
+    defaultConfig {
+        applicationId 'music.chordloom.android'
+        minSdk 26
+        targetSdk 35
+        versionCode 15002
+        versionName '1.5.1-android.1'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+// The APK always packages the current shared web sources, never a stale checked-in bundle.
+tasks.register('prepareWebAssets', Exec) {
+    workingDir rootProject.projectDir.parentFile
+    commandLine 'node', 'android/tools/prepare-assets.cjs'
+}
+tasks.named('preBuild').configure { dependsOn tasks.named('prepareWebAssets') }

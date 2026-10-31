@@ -1,0 +1,80 @@
+name: Build Android APK
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['android/**', 'app/**', 'soundfonts/**', '.github/workflows/android.yml']
+  push:
+    branches: [main]
+    paths: ['android/**', 'app/**', 'soundfonts/**', '.github/workflows/android.yml']
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check shared music engine and Android adapter
+        run: |
+          for suite in app/test-*.cjs; do
+            case "$suite" in *-browser.cjs) continue;; esac
+            node "$suite"
+          done
+      - name: Assemble APK and lint
+        working-directory: android
+        run: ./gradlew --no-daemon assembleDebug lintDebug
+      - name: Verify generated assets
+        run: node android/tools/prepare-assets.cjs --check
+      - name: Install browser test harness
+        run: npm install --prefix "$RUNNER_TEMP/chordloom-browser" --no-save --no-package-lock --ignore-scripts playwright-core@1.62.1
+      - name: Check mobile layout and playback recovery
+        env:
+          NODE_PATH: ${{ runner.temp }}/chordloom-browser/node_modules
+          CHORDLOOM_CHROMIUM: /usr/bin/google-chrome
+        run: |
+          node app/test-android-browser.cjs
+          node app/test-playback-browser.cjs
+      - name: Enable emulator acceleration
+        run: sudo chmod 666 /dev/kvm
+      - name: Check native Android playback
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          NODE_PATH: ${{ runner.temp }}/chordloom-browser/node_modules
+        with:
+          api-level: 35
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          disable-linux-hw-accel: false
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -memory 2048
+          script: node android/tools/test-android-device.cjs --apk android/app/build/outputs/apk/debug/app-debug.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Chordloom-Android-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Android-lint
+          path: android/app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Android-playback-results
+          path: android/device-test-results/
+          if-no-files-found: ignore

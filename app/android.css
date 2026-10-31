@@ -1,0 +1,70 @@
+/* Loaded by the APK only; the desktop app keeps its existing layout. */
+.chordloom-android { -webkit-text-size-adjust: 100%; }
+.chordloom-android body { padding-bottom: env(safe-area-inset-bottom); }
+.chordloom-android main { padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+.chordloom-android button, .chordloom-android select, .chordloom-android input[type="number"], .chordloom-android input[type="text"] { min-height: 44px; font-size: 14px; }
+.chordloom-android button, .chordloom-android summary, .chordloom-android select { touch-action: manipulation; }
+.chordloom-android button { min-width: 44px; }
+.chordloom-android select { max-width: 100%; }
+.chordloom-android .pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.chordloom-android .pair > *, .chordloom-android .workspace > *, .chordloom-android .tools > * { min-width: 0; }
+.chordloom-android label, .chordloom-android .field-label label { font-size: 13px; }
+.chordloom-android .hint, .chordloom-android .control-hint, .chordloom-android #status { font-size: 12px; }
+.chordloom-android .help { min-height: 44px; width: 44px; height: 44px; border-radius: 12px; font-size: 17px; }
+.chordloom-android .field-label { min-height: 44px; }
+.chordloom-android input[type="range"] { min-height: 44px; margin-top: 3px; }
+.chordloom-android input[type="checkbox"] { width: 22px; height: 22px; flex-shrink: 0; }
+.chordloom-android .check { min-height: 44px; padding-right: 4px; }
+.chordloom-android summary { min-height: 44px; padding: 12px 0; font-size: 14px; }
+.chordloom-android .android-palette { margin: 0; padding: 0; border: 0; }
+.chordloom-android .android-palette > summary { font-weight: 600; color: var(--lime); }
+.chordloom-android .android-palette-body { padding-top: 16px; }
+.chordloom-android .android-palette-body > .section-title:first-child { display: none; }
+.chordloom-android .lock { min-width: 52px; min-height: 44px; right: 4px; top: 0; }
+.chordloom-android .chord .index { display: block; padding-right: 50px; min-height: 30px; line-height: 1.5; }
+.chordloom-android .chord h3 { margin-top: 12px; }
+.chordloom-android .chord select { width: 72px; height: 44px; font-size: 14px; }
+.chordloom-android .chord .notes, .chordloom-android .harmony-notes { font-size: 12px; overflow-wrap: anywhere; }
+.chordloom-android .sound-actions button, .chordloom-android .transport button { height: 44px; }
+.chordloom-android .volume { min-height: 44px; flex-wrap: wrap; }
+.chordloom-android .volume input { width: 110px; }
+.chordloom-android .fingering select { min-height: 44px; font-size: 12px; }
+.chordloom-android .fingering small, .chordloom-android .grip-notes { font-size: 11px; }
+.chordloom-android #tablature { max-width: 100%; overflow: auto; overscroll-behavior-x: contain; }
+.chordloom-android .theory-tooltip { max-height: calc(100dvh - 24px); }
+.chordloom-android .android-help { margin-top: 16px; }
+.chordloom-android .android-license-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 360px; overflow: auto; font: 11px/1.6 Consolas, monospace; padding: 12px; background: #111713; border: 1px solid var(--border); border-radius: 6px; }
+.chordloom-android footer a { display: inline-flex; min-height: 44px; align-items: center; }
+@media (max-width: 650px) {
+  .chordloom-android header { height: 68px; }
+  .chordloom-android .brand { gap: 7px; font-size: 24px; }
+  .chordloom-android header .local { font-size: 9px; letter-spacing: .3px; }
+  .chordloom-android .intro { padding: 22px 0; }
+  .chordloom-android .intro h1 { font-size: 36px; }
+  .chordloom-android .intro .eyebrow { font-size: 9px; letter-spacing: 1px; }
+  .chordloom-android .intro p { font-size: 13px; line-height: 1.5; }
+  .chordloom-android aside { padding: 8px 16px; }
+  .chordloom-android .canvas { padding: 18px 14px; }
+  .chordloom-android .canvas-head { gap: 10px; align-items: flex-start; margin-bottom: 18px; }
+  .chordloom-android .canvas-head > div { min-width: 0; }
+  .chordloom-android h2 { font-size: 22px; overflow-wrap: anywhere; }
+  .chordloom-android .pill { white-space: nowrap; padding: 7px; font-size: 9px; }
+  .chordloom-android .chords { gap: 8px; margin-bottom: 22px; }
+  .chordloom-android .chord { padding: 11px; }
+  .chordloom-android .roll-head { gap: 8px; font-size: 9px; letter-spacing: .4px; }
+  .chordloom-android .roll-head span:last-child { text-align: right; }
+  .chordloom-android .roll-wrap { height: 190px; }
+  .chordloom-android .transport { gap: 8px; margin-bottom: 18px; }
+  .chordloom-android .transport .spacer { display: none; }
+  .chordloom-android .transport .volume { flex-basis: 100%; }
+  .chordloom-android .transport #position { margin-left: auto; }
+  .chordloom-android .sound-grid { grid-template-columns: minmax(0, 1fr); }
+  .chordloom-android .sound-actions { grid-column: auto; }
+  .chordloom-android .sound-actions button:first-child { flex: 1; }
+  .chordloom-android .fret-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chordloom-android .fret-controls label:first-child { grid-column: span 2; }
+  .chordloom-android .tools button { flex: 1 1 125px; }
+  .chordloom-android .export { align-items: stretch; }
+  .chordloom-android .export button { width: 100%; }
+  .chordloom-android .export p { line-height: 1.5; }
+}

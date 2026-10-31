@@ -1,13 +1,23 @@
 # Chordloom
 
-Version 1.5 · A local chord progression studio with Standard MIDI File export, plus a separate native VST3 source project for FL Studio on Windows.
+Version 1.5.1 · A local chord progression studio with Standard MIDI File export, plus a separate native VST3 source project for FL Studio on Windows.
+
+## Android phones
+
+[Download the signed Android test APK](downloads/Chordloom-Android-1.5.0-debug.apk?raw=1).
+
+An offline Android APK project is available in **android/**. It uses this same
+music engine with touch controls and Android document pickers for MIDI, tab, session
+and SoundFont files. See [android/README.md](android/README.md) for installation,
+building, and Android-specific limits. The Android workflow creates a debug-signed
+test APK; it does not build or require the VST3.
 
 ## Start making music now
 
 Open **Chordloom.html** in Chrome or Edge (double-click it). It is a self-contained offline app; no installation, account, external dependencies, or internet connection is needed for generation, preview, session save/load, or MIDI export.
 
 1. Choose root, scale, progression recipe, chord color, and voicing.
-2. Use the ? buttons to learn what each control does. Choose among 14 progression recipes, 26 chord colors, and 10 voicings. Generate variation now follows the selected recipe instead of choosing an unrelated pattern. Choose 4 or 8 chords. Change an individual chord with its degree dropdown. Lock a degree to preserve it on regeneration; changing the global key/color can still change its notes.
+2. Use the ? buttons to learn what each control does. Choose among 14 progression recipes, 26 chord colors, and 10 voicings. Generate variation keeps recipe endpoints and locked degrees, avoids adjacent repeats where possible, balances degree use, and avoids recent progressions while equally balanced alternatives remain. Choose 4 or 8 chords. Change an individual chord with its degree dropdown. Active playback regenerates and restarts automatically from the beginning; stopped playback stays stopped. Lock a degree to preserve it on regeneration; changing the global key/color can still change its notes.
 3. Choose a root octave from −1 through 9, then set tempo, one of 17 rhythms, bars per chord, velocity, and note length. The standalone app uses 4/4.
 4. Click Play to hear the built-in synth through the browser audio player. Sound on is enabled by default; adjust Volume beside Play. The built-in synth needs no MIDI device, AudioContext, internet or soundfont. The Soundbank selector below the transport adds 24 factory instrument tones and support for local SF2/SF3 files. Audio is synthesized locally into a PCM WAV and follows the same note events as MIDI export.
 5. Click Export MIDI. Select an instrument in FL Studio and drag the downloaded .mid file into its Piano roll, or use the Piano roll File > Import MIDI file command. The file contains one channel, note velocities, tempo, time signature, and the exact full progression duration. Set FL Studio tempo to match if its import workflow preserves your project tempo.

@@ -11,3 +11,11 @@ Thumbs.db
 .env
 .env.*
 *.log
+
+# Android generated assets, local SDK configuration and signing material
+android/.gradle/
+android/local.properties
+android/device-test-results/
+android/app/src/main/assets/
+*.jks
+*.keystore
