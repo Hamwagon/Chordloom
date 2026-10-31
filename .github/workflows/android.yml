@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   apk:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +36,31 @@ jobs:
         run: ./gradlew --no-daemon assembleDebug lintDebug
       - name: Verify generated assets
         run: node android/tools/prepare-assets.cjs --check
+      - name: Install browser test harness
+        run: npm install --prefix "$RUNNER_TEMP/chordloom-browser" --no-save --no-package-lock --ignore-scripts playwright-core@1.62.1
+      - name: Check mobile layout and playback recovery
+        env:
+          NODE_PATH: ${{ runner.temp }}/chordloom-browser/node_modules
+          CHORDLOOM_CHROMIUM: /usr/bin/google-chrome
+        run: |
+          node app/test-android-browser.cjs
+          node app/test-playback-browser.cjs
+      - name: Enable emulator acceleration
+        run: sudo chmod 666 /dev/kvm
+      - name: Check native Android playback
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          NODE_PATH: ${{ runner.temp }}/chordloom-browser/node_modules
+        with:
+          api-level: 35
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          emulator-boot-timeout: 300
+          disable-animations: true
+          disable-linux-hw-accel: false
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -memory 2048
+          script: node android/tools/test-android-device.cjs --apk android/app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
           name: Chordloom-Android-debug
@@ -46,4 +71,10 @@ jobs:
         with:
           name: Android-lint
           path: android/app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Android-playback-results
+          path: android/device-test-results/
           if-no-files-found: ignore
