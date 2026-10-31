@@ -62,7 +62,62 @@ return addHarmony({degree:normalized,label,notes,rootNote,tones:tones.map(t=>({s
 }
 function roman(degree,s){const numerals=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'],d=mod(degree,getScale(s).length),t=buildTones(d,{...s,extension:'3'}).map(t=>t.note),third=t[1]-t[0],fifth=t[2]-t[0];return (third===3?numerals[d].toLowerCase():numerals[d])+(third===3&&fifth===6?'°':third===4&&fifth===8?'+':'');}
 function recipeDegrees(s){const r=recipeFor(s),count=Number(s.length)||4,n=getScale(s).length;return Array.from({length:count},(_,i)=>mod(r.degrees[i%r.degrees.length],n));}
-function vary(s,current,locks,rng=Math.random){const base=recipeDegrees(s).map((d,i)=>locks[i]?current[i]??d:d),n=getScale(s).length,eligible=base.map((_,i)=>i).filter(i=>i>0&&i<base.length-1&&!locks[i]);if(!eligible.length)return {degrees:current.slice(),changed:false};const index=eligible[Math.floor(rng()*eligible.length)],groups=[[0,2,5],[1,3],[4,6]],group=s.scale==='major'?groups.find(g=>g.includes(base[index])):null;let choices=(group||Array.from({length:n},(_,i)=>i)).filter(d=>d!==base[index]&&d!==current[index]);if(!choices.length)choices=Array.from({length:n},(_,i)=>i).filter(d=>d!==base[index]&&d!==current[index]);base[index]=choices[Math.floor(rng()*choices.length)];return {degrees:base,changed:true,index};}
+function vary(s,current,locks=[],rng=Math.random,recentHistory=[]){
+// Keep the recipe's entrance/cadence and explicit locks; regenerate the editable middle.
+// A bounded search avoids favoring a small functional group or repeatedly changing one card.
+const base=recipeDegrees(s).map((d,i)=>locks[i]?current[i]??d:d),n=getScale(s).length;
+const eligible=base.map((_,i)=>i).filter(i=>i>0&&i<base.length-1&&!locks[i]);
+if(!eligible.length)return {degrees:current.slice(),changed:false,indices:[],reused:false};
+const random=()=>{const value=Number(rng());return Number.isFinite(value)?Math.max(0,Math.min(1-Number.EPSILON,value)):0.5;};
+const key=values=>values.join(','),recent=new Map();
+for(const [i,route] of recentHistory.entries()){
+  if(Array.isArray(route)&&route.length===base.length)recent.set(key(route),i);
+  else if(typeof route==='string')recent.set(route,i);
+}
+const candidates=new Map();
+const add=route=>{if(eligible.every(i=>route[i]===current[i]))return;const id=key(route);if(!candidates.has(id))candidates.set(id,route.slice());};
+const space=Math.pow(n,eligible.length);
+if(space<=4096){
+  const visit=depth=>{if(depth===eligible.length){add(base);return;}const index=eligible[depth];for(let d=0;d<n;d++){base[index]=d;visit(depth+1);}};
+  visit(0);
+}else{
+  // Fixed tones count before filling the middle, so common anchored/locked roots aren't overused.
+  // The trial salt diversifies candidates even with a constant/adversarial RNG.
+  const fixed=new Set(base.map((_,i)=>i).filter(i=>!eligible.includes(i)));
+  for(let trial=0;trial<384;trial++){
+    const route=base.slice(),counts=Array(n).fill(0);for(const i of fixed)counts[route[i]]++;
+    let salt=(Math.floor(random()*0x100000000)^(Math.imul(trial+1,0x9e3779b9)))>>>0;
+    const draw=limit=>{salt^=salt<<13;salt^=salt>>>17;salt^=salt<<5;return (salt>>>0)%limit;};
+    for(const index of eligible){
+      let options=Array.from({length:n},(_,i)=>i).filter(d=>d!==route[index-1]&&(!fixed.has(index+1)||d!==route[index+1]));
+      if(trial%4!==3){const least=Math.min(...options.map(d=>counts[d]));options=options.filter(d=>counts[d]===least);}
+      const degree=options[draw(options.length)];route[index]=degree;counts[degree]++;
+    }
+    add(route);
+  }
+  // Always include one-position alternatives: a pathological RNG or a small candidate pool
+  // must never make Generate variation claim no change when a free degree can change.
+  for(const index of eligible)for(let d=0;d<n;d++){const route=base.slice();route[index]=d;add(route);}
+}
+const quality=route=>{
+  const counts=Array(n).fill(0);for(const d of route)counts[d]++;
+  let adjacent=0;for(let i=0;i<route.length;i++)if(route[i]===route[(i+1)%route.length])adjacent++;
+  const repeats=counts.reduce((sum,count)=>sum+count*(count-1)/2,0),lastSeen=recent.get(key(route));
+  // Reuse the least recent route only after the equally varied fresh choices are exhausted.
+  const unchanged=eligible.reduce((sum,i)=>sum+Number(route[i]===current[i]),0);
+  return [adjacent,repeats,lastSeen===undefined?0:1,lastSeen??0,unchanged];
+};
+const compare=(a,b)=>{for(let i=0;i<a.length;i++)if(a[i]!==b[i])return a[i]-b[i];return 0;};
+let selected=null,best=null,ties=0;
+for(const route of candidates.values()){
+  const score=quality(route),order=best?compare(score,best):-1;
+  if(order<0){selected=route;best=score;ties=1;}
+  else if(order===0&&random()<1/++ties)selected=route;
+}
+if(!selected)return {degrees:current.slice(),changed:false,indices:[],reused:false};
+const indices=selected.map((d,i)=>i).filter(i=>selected[i]!==current[i]);
+return {degrees:selected,changed:true,index:indices.find(i=>eligible.includes(i)),indices,reused:recent.has(key(selected))};
+}
 function progression(s,degrees){let previous=[];return degrees.map(d=>{const c=chord(d,s,previous);previous=c.baseNotes;return c;});}
 function events(s,chords){
 const result=[],span=Number(s.bars)*4,id=rhythmFor(s).id,gate=Math.max(.01,Math.min(1,Number(s.gate)||.9)),velocity=Math.max(1,Math.min(127,Number(s.velocity)||86));

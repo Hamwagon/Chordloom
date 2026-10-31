@@ -28,7 +28,7 @@ jobs:
       - name: Check shared music engine and Android adapter
         run: |
           for suite in app/test-*.cjs; do
-            case "$suite" in *test-android-browser.cjs) continue;; esac
+            case "$suite" in *-browser.cjs) continue;; esac
             node "$suite"
           done
       - name: Assemble APK and lint
